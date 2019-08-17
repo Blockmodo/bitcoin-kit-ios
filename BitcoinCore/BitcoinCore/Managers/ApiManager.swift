@@ -96,7 +96,7 @@ public class ApiManager {
         let observable = Observable<DataResponse<Any>>.create { observer in
             self.logger?.debug("API OUT: \(request.urlRequest?.httpMethod ?? "") \(request.urlRequest?.url?.absoluteString ?? "")")
 
-            let requestReference = Alamofire.request(request)
+            let requestReference = AF.request(request)
                     .validate()
                     .responseJSON(queue: DispatchQueue.global(qos: .background), completionHandler: { response in
                         observer.onNext(response)
